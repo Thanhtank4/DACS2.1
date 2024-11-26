@@ -1,5 +1,4 @@
 <?php
-// grammar_lessons.php
 session_start();
 include '../model/db.php';
 
@@ -50,7 +49,7 @@ $lessons = $stmt->fetchAll();
                         <span>10 exercises</span>
                     </div>
                 </div>
-                <a href="./grammar_level/level1.php" class="lesson-btn">Start Lesson</a>
+                <a href="grammar_level.php" class="lesson-btn">Start Lesson</a>
             </div>
 
             <div class="lesson-card">
@@ -67,8 +66,6 @@ $lessons = $stmt->fetchAll();
                 </div>
                 <a href="lesson_detail.php?id=2" class="lesson-btn disabled">Complete Previous Lesson</a>
             </div>
-
-            <!-- Add more lesson cards as needed -->
         </div>
     </div>
 </body>

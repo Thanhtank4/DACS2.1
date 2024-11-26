@@ -10,4 +10,11 @@ try {
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
+function getQuestionsByLessonId($pdo, $lesson_id)
+{
+    $stmt = $pdo->prepare("SELECT id, answer FROM grammar WHERE lesson_id = ?");
+    $stmt->execute([$lesson_id]);
+    return $stmt->fetchAll();
+}
+
 ?>

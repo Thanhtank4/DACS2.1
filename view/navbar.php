@@ -1,24 +1,11 @@
-
 <nav class="navbar">
     <div class="container nav-container">
         <div class="nav-left">
             <a href="../index.php" class="logo">English Learning</a>
         </div>
-        
-        <div class="nav-middle">
-            <a href="../index.php" class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], 'grammar_lessons.php') !== false) ? 'active' : ''; ?>">
-            GRAMMAR LESSONS
-            </a>
-            <a href="../index.php" class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], 'practice_tests.php') !== false) ? 'active' : ''; ?>">
-            PRACTICE TESTS
-            </a>
-            <a href="../index.php" class="nav-link <?php echo (strpos($_SERVER['PHP_SELF'], 'conversations.php') !== false) ? 'active' : ''; ?>">
-            CONVERSATIONS
-            </a>
-        </div>
 
         <div class="nav-right">
-            <?php if(isset($_SESSION['user_id'])): ?>
+            <?php if (isset($_SESSION['user_id'])): ?>
                 <div class="user-menu">
                     <span class="user-progress">Level: <?php echo isset($_SESSION['user_level']) ? $_SESSION['user_level'] : '1'; ?></span>
                     <div class="dropdown">

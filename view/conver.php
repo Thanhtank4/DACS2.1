@@ -1,7 +1,7 @@
 <?php
 // conversations.php
 session_start();
-include 'db.php';
+include '../model/db.php';
 
 $level = isset($_GET['level']) ? (int)$_GET['level'] : 1;
 
@@ -17,15 +17,16 @@ $conversations = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversations - Level <?php echo $level; ?></title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/conversations.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/lessons.css">
+    <link rel="stylesheet" href="../public/css/navbar.css">
 </head>
 <body>
-    <?php include 'includes/navbar.php'; ?>
+<?php include 'navbar.php'; ?>
 
     <div class="container main-content">
         <div class="breadcrumb">
-            <a href="index.php">Home</a> > Conversations > Level <?php echo $level; ?>
+            <a href="../index.php">Home</a> > Conversations > Level <?php echo $level; ?>
         </div>
 
         <div class="level-header">

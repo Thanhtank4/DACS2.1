@@ -202,7 +202,7 @@ include './model/db.php'; ?>
                             <div class='lesson-count'>50 tests</div>
                         </div>
                         <div class='card-content'>
-                            <a href='./view/pratice.php?level=$i' class='start-btn'>Start Test</a>
+                            <a href='./view/partice.php?level=$i' class='start-btn'>Start Test</a>
                         </div>
                     </div>";
                 }
