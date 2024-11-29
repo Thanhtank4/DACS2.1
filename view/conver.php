@@ -22,7 +22,7 @@ $conversations = $stmt->fetchAll();
     <link rel="stylesheet" href="../public/css/navbar.css">
 </head>
 <body>
-<?php include 'navbar.php'; ?>
+<?php include '../view/page/navbar.php'; ?>
 
     <div class="container main-content">
         <div class="breadcrumb">

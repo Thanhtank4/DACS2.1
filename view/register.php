@@ -15,120 +15,75 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     );
     
     if (!$result['success']) {
-        $error = $result['message'];  // Chỉ xử lý thông báo lỗi
+        $error = $result['message'];
     } else {
-        // Redirect to login page immediately if registration is successful
         header("Location: login.php");
         exit();
     }
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng ký - Hi English</title>
-    <link rel="stylesheet" href="./public/css/style.css">
-    <style>
-        .register-container {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../public/css/login.css">
 
-        .register-container h2 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #666;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        .btn-register {
-            width: 100%;
-            padding: 10px;
-            background: #28a745;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .btn-register:hover {
-            background: #218838;
-        }
-
-        .error-message {
-            color: #dc3545;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .login-link {
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .login-link a {
-            color: #007bff;
-            text-decoration: none;
-        }
-    </style>
 </head>
 <body>
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="../public/img/login.mp4" type="video/mp4">
+        Trình duyệt của bạn không hỗ trợ video.
+    </video>
+    <div class="login-container">
+        <a href="../index.php" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+
     <div class="register-container">
-        <h2>Đăng ký tài khoản</h2>
+        <h2>Đăng ký</h2>
         <?php if ($error): ?>
-            <div class="error-message"><?php echo htmlspecialchars($error); ?></div>
+            <div class="error-message">
+                <i class="fas fa-exclamation-circle"></i>
+                <?php echo htmlspecialchars($error); ?>
+            </div>
         <?php endif; ?>
         
         <form method="POST" action="">
             <div class="form-group">
                 <label for="username">Tên đăng nhập</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" placeholder="Nhập tên đăng nhập" required>
+                <i class="fas fa-user"></i>
             </div>
             
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" placeholder="Nhập email" required>
+                <i class="fas fa-envelope"></i>
             </div>
             
             <div class="form-group">
                 <label for="password">Mật khẩu</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
+                <i class="fas fa-lock"></i>
             </div>
             
             <div class="form-group">
                 <label for="confirm_password">Xác nhận mật khẩu</label>
-                <input type="password" id="confirm_password" name="confirm_password" required>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Nhập lại mật khẩu" required>
+                <i class="fas fa-lock"></i>
             </div>
             
-            <button type="submit" class="btn-register">Đăng ký</button>
+            <button type="submit" class="btn-login">
+                Đăng ký
+                <i class="fas fa-user-plus"></i>
+            </button>
         </form>
 
-        <div class="login-link">
-            <p>Đã có tài khoản? <a href="login.php">Đăng nhập ngay</a></p>
+        <div class="register-link">
+            Đã có tài khoản? <a href="login.php">Đăng nhập ngay</a>
         </div>
     </div>
 </body>

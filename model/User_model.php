@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "english_learning";
+$dbname = "english";
 
 // Tạo kết nối
 $conn = new mysqli($servername, $username, $password, $dbname);

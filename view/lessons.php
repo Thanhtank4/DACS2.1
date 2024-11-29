@@ -4,10 +4,12 @@ include '../model/db.php';
 
 $level = isset($_GET['level']) ? (int)$_GET['level'] : 1;
 
-// Fetch grammar lessons for this level
-$stmt = $pdo->prepare("SELECT * FROM lessons WHERE type = 'grammar' AND level = ?");
-$stmt->execute([$level]);
-$lessons = $stmt->fetchAll();
+$lesson_id = isset($_GET['lesson_id']) ? (int)$_GET['lesson_id'] : 1;
+
+// Truy vấn bài học theo lesson_id
+$stmt = $pdo->prepare("SELECT * FROM lessons WHERE id = ?");
+$stmt->execute([$lesson_id]);
+$lesson = $stmt->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +23,7 @@ $lessons = $stmt->fetchAll();
     <link rel="stylesheet" href="../public/css/navbar.css">
 </head>
 <body>
-    <?php include 'navbar.php'; ?>
+    <?php include '../view/page/navbar.php'; ?>
 
     <div class="container main-content">
         <div class="breadcrumb">
