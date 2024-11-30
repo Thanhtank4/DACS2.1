@@ -548,4 +548,8 @@ body {
 
     .add-to-cart-btn:hover {
         transform: scale(1.05);
-    }   
+    } 
+    .container-logo {
+        padding: 1rem 2rem;
+        backdrop-filter: blur(10px);
+    }  

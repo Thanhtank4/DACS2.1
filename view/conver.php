@@ -5,10 +5,6 @@ include '../model/db.php';
 
 $level = isset($_GET['level']) ? (int)$_GET['level'] : 1;
 
-// Fetch conversations for this level
-$stmt = $pdo->prepare("SELECT * FROM lessons WHERE type = 'conversation' AND level = ?");
-$stmt->execute([$level]);
-$conversations = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>

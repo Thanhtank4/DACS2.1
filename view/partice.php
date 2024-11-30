@@ -5,10 +5,7 @@ include '../model/db.php';
 
 $level = isset($_GET['level']) ? (int)$_GET['level'] : 1;
 
-// Fetch tests for this level
-$stmt = $pdo->prepare("SELECT * FROM lessons WHERE type = 'test' AND level = ?");
-$stmt->execute([$level]);
-$tests = $stmt->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
