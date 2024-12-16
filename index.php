@@ -1,7 +1,5 @@
 <?php session_start();
 include './model/db.php';
-
-
 ?>
 
 <!DOCTYPE html>
@@ -17,51 +15,52 @@ include './model/db.php';
 </head>
 <style>
     .premium-banner {
-    background: linear-gradient(135deg, #2a2a72 0%, #009ffd 74%);
-    padding: 1.5rem 0;
-    margin: 2rem 0;
-}
+        background: linear-gradient(135deg, #2a2a72 0%, #009ffd 74%);
+        padding: 1.5rem 0;
+        margin: 2rem 0;
+    }
 
-.premium-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-}
+    .premium-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+    }
 
-.premium-info h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
+    .premium-info h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
 
-.premium-info p {
-    font-size: 1rem;
-    opacity: 0.9;
-}
+    .premium-info p {
+        font-size: 1rem;
+        opacity: 0.9;
+    }
 
-.premium-btn {
-    background-color: #ffd700;
-    color: #2a2a72;
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: transform 0.3s ease;
-}
+    .premium-btn {
+        background-color: #ffd700;
+        color: #2a2a72;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: transform 0.3s ease;
+    }
 
-.premium-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
+    .premium-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-.fa-crown {
-    color: #ffd700;
-    margin-right: 0.5rem;
-}
+    .fa-crown {
+        color: #ffd700;
+        margin-right: 0.5rem;
+    }
 </style>
+
 <body>
     <!-- Banner -->
     <nav class="navbar">
@@ -102,33 +101,33 @@ include './model/db.php';
 
     <!-- Section Navigation Menu -->
     <div class="nav-menu">
-    <div class="container">
-        <button class="nav-btn active" data-section="grammar">
-            <i class="fas fa-book"></i> GRAMMAR LESSONS
-        </button>
-        <button class="nav-btn" data-section="practice">
-            <i class="fas fa-tasks"></i> PRACTICE TESTS
-        </button>
-        <button class="nav-btn" data-section="conversation">
-            <i class="fas fa-comments"></i> CONVERSATIONS
-        </button>
-    </div>
-</div>
-<!-- Thêm phần Premium riêng biệt -->
-<div class="premium-banner">
-    <div class="container">
-        <div class="premium-content">
-            <div class="premium-info">
-                <h2><i class="fas fa-crown"></i> PREMIUM COURSES</h2>
-                <p>Nâng cao kỹ năng với các khóa học chuyên sâu</p>
-            </div>
-            <a href="./view/shop.php" class="premium-btn">
-                <span>Khám phá ngay</span>
-                <i class="fas fa-arrow-right"></i>
-            </a>
+        <div class="container">
+            <button class="nav-btn active" data-section="grammar">
+                <i class="fas fa-book"></i> GRAMMAR LESSONS
+            </button>
+            <button class="nav-btn" data-section="practice">
+                <i class="fas fa-tasks"></i> PRACTICE TESTS
+            </button>
+            <button class="nav-btn" data-section="conversation">
+                <i class="fas fa-comments"></i> CONVERSATIONS
+            </button>
         </div>
     </div>
-</div>
+    <!-- Thêm phần Premium riêng biệt -->
+    <div class="premium-banner">
+        <div class="container">
+            <div class="premium-content">
+                <div class="premium-info">
+                    <h2><i class="fas fa-crown"></i> PREMIUM COURSES</h2>
+                    <p>Nâng cao kỹ năng với các khóa học chuyên sâu</p>
+                </div>
+                <a href="./view/shop.php" class="premium-btn">
+                    <span>Khám phá ngay</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
     <!-- Main Content -->
     <div class="container main-content">
 

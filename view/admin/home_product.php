@@ -1,25 +1,24 @@
 <?php
 session_start();
+
+// Kiểm tra xem người dùng đã đăng nhập chưa
 if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'thanhtan') {
     header("Location: ../../index.php");
     exit();
 }
 
 include '../../model/db.php';
+include '../../model/Course.php';  // Bao gồm model Course
 
-// Lấy thống kê
-$sql_products = "SELECT COUNT(*) as total FROM courses";
-
-$products_count = mysqli_fetch_assoc(mysqli_query($conn, $sql_products))['total'];
-$result = mysqli_query($conn, $sql_products);
-if (!$result) {
-    die("Query Failed: " . mysqli_error($conn));
-}
-
+// Lấy tất cả khóa học từ cơ sở dữ liệu
+$courses = Course::getAllCourses();  // Lấy danh sách tất cả khóa học
+$products_count = count($courses);   // Đếm số lượng khóa học
 ?>
+
 
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -89,7 +88,7 @@ if (!$result) {
             align-items: center;
             justify-content: space-between;
             padding: 0 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .main-content {
@@ -101,7 +100,7 @@ if (!$result) {
             background: white;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             max-width: 800px;
             margin: 0 auto;
         }
@@ -171,7 +170,7 @@ if (!$result) {
             background: #fee2e2;
             color: #991b1b;
         }
-        
+
         .stats-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -183,7 +182,7 @@ if (!$result) {
             background: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             gap: 20px;
@@ -213,7 +212,7 @@ if (!$result) {
             background: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .recent-products h2 {
@@ -257,6 +256,7 @@ if (!$result) {
         }
     </style>
 </head>
+
 <body>
     <!-- Giữ nguyên sidebar từ file trước -->
     <div class="sidebar">
@@ -280,13 +280,7 @@ if (!$result) {
                 </a>
             </li>
             <li>
-                <a href="categories.php">
-                    <i class="fas fa-tags"></i>
-                    <span>Danh mục</span>
-                </a>
-            </li>
-            <li>
-                <a href="./logout.php">
+                <a href="../login/logout.php">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Đăng xuất</span>
                 </a>
@@ -323,26 +317,24 @@ if (!$result) {
                     <i class="fas fa-tags"></i>
                 </div>
                 <div class="stat-info">
-                    <h3><?php echo $categories_count; ?></h3>
+                    <h3></h3>
                     <p>Danh mục</p>
                 </div>
             </div>
         </div>
 
         <div class="recent-products">
-            <h2>Sản phẩm mới thêm</h2>
+            <h2>Quản lí khoá học</h2>
             <ul class="product-list">
-                <?php while($product = mysqli_fetch_assoc($recent_products)): ?>
+
                 <li class="product-item">
                     <div>
-                        <strong><?php echo htmlspecialchars($product['name']); ?></strong>
-                        <span><?php echo number_format($product['price']); ?>đ</span>
                     </div>
-                    <span><?php echo date('d/m/Y', strtotime($product['created_at'])); ?></span>
+
                 </li>
-                <?php endwhile; ?>
             </ul>
         </div>
     </div>
 </body>
+
 </html>

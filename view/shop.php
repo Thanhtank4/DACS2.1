@@ -7,14 +7,6 @@ include '../model/Cart.php';    // Bao gồm model giỏ hàng
 // Lấy danh sách khóa học từ database
 $courses = Course::getAllCourses();
 
-// Xử lý thêm khóa học vào giỏ hàng
-if (isset($_GET['action']) && $_GET['action'] == 'add' && isset($_GET['id'])) {
-    $courseId = $_GET['id'];
-    Cart::addItem($courseId);
-    header('Location: shop.php'); // Chuyển hướng lại trang shop sau khi thêm khóa học vào giỏ
-}
-$courses = Course::getAllCourses();
-
 if (isset($_GET['action'])) {
     $courseId = $_GET['id'];
 

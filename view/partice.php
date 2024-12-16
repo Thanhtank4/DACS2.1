@@ -5,11 +5,11 @@ include '../model/db.php';
 
 $level = isset($_GET['level']) ? (int)$_GET['level'] : 1;
 
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,8 +18,9 @@ $level = isset($_GET['level']) ? (int)$_GET['level'] : 1;
     <link rel="stylesheet" href="../public/css/lessons.css">
     <link rel="stylesheet" href="../public/css/navbar.css">
 </head>
+
 <body>
-<?php include '../view/page/navbar.php'; ?>
+    <?php include '../view/page/navbar.php'; ?>
 
     <div class="container main-content">
         <div class="breadcrumb">
@@ -57,25 +58,12 @@ $level = isset($_GET['level']) ? (int)$_GET['level'] : 1;
                         <p>Duration: 30 minutes</p>
                         <p>Questions: 25</p>
                     </div>
-                    <a href="test_start.php?id=1" class="test-btn">Retake Test</a>
+                    <a href="practice_1.php?id=1" class="test-btn">Retake Test</a>
                 </div>
             </div>
 
-            <div class="test-card">
-                <div class="test-header">
-                    <h3>Test 2</h3>
-                    <span class="test-status">Not Started</span>
-                </div>
-                <div class="test-content">
-                    <div class="test-info">
-                        <p>Topics: Past Tense, Articles</p>
-                        <p>Duration: 30 minutes</p>
-                        <p>Questions: 25</p>
-                    </div>
-                    <a href="test_start.php?id=2" class="test-btn">Start Test</a>
-                </div>
-            </div>
         </div>
     </div>
 </body>
+
 </html>

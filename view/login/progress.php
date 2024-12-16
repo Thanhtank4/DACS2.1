@@ -115,9 +115,6 @@ $username = $_SESSION['username'];
         }
     </style>
 </head>
-<body>
-    <?php include 'header.php'; ?>
-
     <div class="progress-container">
         <div class="progress-header">
             <h1>Tiến độ học tập</h1>
